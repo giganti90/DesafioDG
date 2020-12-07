@@ -38,10 +38,13 @@ data class DigitalHouseManager {
 
 
 
-    fun matricularAluno(numeroAluno: Int, codCurso: Int) {
+   open fun matricularAluno(numeroAluno: Int, codCurso: Int) {
+       var alunoMatriculado = Estudante(numeroAluno)
+       var cursoDaMatricula = Curso(codCurso)
 
-        fun acharAluno(numeroAluno: Int): Estudante {
-            var alunoMatriculado = Estudante(numeroAluno)
+
+       fun acharAluno(numeroAluno: Int): Estudante {
+
             alunoMatriculado = null
             listaAlunos.forEach { estudante ->
                 alunoMatriculado = estudante
@@ -50,12 +53,12 @@ data class DigitalHouseManager {
         }
 
         fun acharCurso(codCurso: Int): Curso {
-            var cursoMatricula = Curso(codCurso)
-            cursoMatricula = null
+
+            cursoDaMatricula = null
             listaCurso.forEach { curso ->
-                cursoMatricula = curso
+                cursoDaMatricula = curso
             }
-            return cursoMatricula
+            return cursoDaMatricula
         }
 
         if (alunoMatriculado != null && cursoDaMatricula != null) {
