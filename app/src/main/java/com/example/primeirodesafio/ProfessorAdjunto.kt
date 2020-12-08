@@ -1,5 +1,5 @@
 package com.example.primeirodesafio
 
-data class ProfessorAdjunto(val horasMonitoria: Int, nome: String, sobrenome: String, tempoDeCasa: Int, codAdjunto: Int):
-    Professor( nome, sobrenome, tempoDeCasa, codProf) {
+class ProfessorAdjunto(val horasMonitoria: Int, nomeProf: String, sobrenomeProf: String, tempoDeCasa: Int, codProf: Int):
+    Professor(nomeProf, sobrenomeProf, tempoDeCasa, codProf) {
 }

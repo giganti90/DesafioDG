@@ -2,27 +2,35 @@ package com.example.primeirodesafio
 
 data class Curso(val nomeDoCurso: String, val codCurso: Int, val maximoAlunos: Int) {
 
-    var professortitular = Professor
-    var vaga = mutableListOf<Estudante>()
+    private var vagas = mutableListOf<Estudante>()
 
-    fun equals(other: Any?) : Boolean {
+    override fun equals(other: Any?) : Boolean {
         if (other === codCurso) {
-            return other.equals(codCurso)
             println("O Código $codCurso já pertence a outro Curso")
+            return other.equals(codCurso)
         }
         return false
     }
 
     fun adicionarUmAluno(umAluno: Estudante): Boolean {
-        if (vaga.size <= maximoAlunos){
-            vaga.add(Estudante)
+        if (vagas.size <= maximoAlunos){
+            vagas.add(umAluno)
             return true
         }
         return false
     }
 
-    fun removerUmAluno(umAluno: Estudante): Boolean {
-        vaga.remove(Estudante())
+    fun removerUmAluno(umAluno: Estudante) {
+        vagas.remove(umAluno)
+    }
+
+    // IDE que fez isso aqui
+    override fun hashCode(): Int {
+        var result = nomeDoCurso.hashCode()
+        result = 31 * result + codCurso
+        result = 31 * result + maximoAlunos
+        result = 31 * result + vagas.hashCode()
+        return result
     }
 
 }
