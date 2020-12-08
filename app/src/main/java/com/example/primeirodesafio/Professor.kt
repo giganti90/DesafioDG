@@ -18,4 +18,8 @@ open class Professor(val nomeProf: String, val sobrenomeProf: String, val tempoD
         result = 31 * result + codProf
         return result
     }
+
+    override fun toString(): String {
+        return "'$nomeProf $sobrenomeProf', com tempo de casa de $tempoDeCasa anos e código do professor '$codProf',"
+    }
 }

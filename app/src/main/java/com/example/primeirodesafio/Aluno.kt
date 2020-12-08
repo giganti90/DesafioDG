@@ -20,4 +20,7 @@ data class Estudante(val nome: String, val sobrenome: String, var numeroAluno: I
         result = 31 * result + matriculaAluno.hashCode()
         return result
     }
+    override fun toString(): String {
+        return "'$nome $sobrenome', com código do aluno '$numeroAluno,'"
+    }
 }

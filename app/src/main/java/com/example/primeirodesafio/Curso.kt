@@ -32,7 +32,9 @@ data class Curso(val nomeDoCurso: String, val codCurso: Int, val maximoAlunos: I
         result = 31 * result + vagas.hashCode()
         return result
     }
-
+    override fun toString(): String {
+        return "Curso $nomeDoCurso, com código do curso '$codCurso' e máximo de $maximoAlunos alunos, "
+    }
 }
 
 
