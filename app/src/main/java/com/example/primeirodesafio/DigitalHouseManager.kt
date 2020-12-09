@@ -4,10 +4,11 @@ class DigitalHouseManager {
     val listaAlunos = mutableListOf<Estudante>()
     val listaCurso = mutableListOf<Curso>()
     val listaProfessores = mutableListOf<Professor>()
-    val listaMatriculas = mutableListOf<Professor>()
+    val listaMatriculas = mutableListOf<Matricula>()
 
     val alunoMatriculante: Estudante? = null
     val cursoMasComMinuscula: Curso? = null
+    val vaga: Curso? = null
 
 
     fun registraCurso(nomeDoCurso: String, codCurso: Int, maximoAlunos: Int) {
@@ -26,7 +27,12 @@ class DigitalHouseManager {
     }
 
 
-    fun registrarProfessorAdjunto(nome: String, sobrenome: String, codProf: Int, quantidadeDeHoras: Int) {
+    fun registrarProfessorAdjunto(
+        nome: String,
+        sobrenome: String,
+        codProf: Int,
+        quantidadeDeHoras: Int
+    ) {
         val novoAdjunto = ProfessorAdjunto(0, nome, sobrenome, codProf, quantidadeDeHoras)
         listaProfessores.add(novoAdjunto)
         println("Professor Adjunto $novoAdjunto criado com sucesso")
@@ -34,8 +40,13 @@ class DigitalHouseManager {
     }
 
 
-    fun registrarProfessorTitular(nome: String, sobrenome: String, codProf: Int, quantidadeDeHoras: Int) {
-        val novoTitular = Professor(nome, sobrenome, codProf, quantidadeDeHoras)
+    fun registrarProfessorTitular(
+        nomeProf: String,
+        sobrenomeProf: String,
+        codProf: Int,
+        quantidadeDeHoras: Int
+    ) {
+        val novoTitular = Professor(nomeProf, sobrenomeProf, codProf, quantidadeDeHoras)
         listaProfessores.add(novoTitular)
         println("Professor Titular $novoTitular criado com sucesso")
 
@@ -58,51 +69,70 @@ class DigitalHouseManager {
         println("Aluno $alunoNovo criado com sucesso")
 
     }
+
+    fun checaCodigoAluno(numeroAluno: Int): Int {
+        if (numeroAluno in listaAlunos) {
+            return numeroAluno
+        }
+        return -1
+    }
+
+    fun checaCodigoCurso(codCurso: Int): Int {
+        if (codCurso in listaAlunos) {
+            return codCurso
+        }
+        return -1
+    }
+
+
+    fun temVagaNoCurso() {
+        if (vaga != null) {
+            if (listaAlunos.size < vaga.maximoAlunos) {
+                return
+            }
+        }
+    }
 }
-
-
         // ate aqui ok
-    // daqui pra baixo só desgraça
+        // daqui pra baixo só desgraça
 
 
-
-//        fun matricularAluno(numeroAluno: Int, codCurso: Int): Estudante {
+//        fun matricularAluno(numeroAluno: Int, codCurso: Int) {
 //
-//            var novoAlunoMatriculado = Estudante(numeroAluno)
-//            var novoCursoCriado = Curso(codCurso)
+//            var aluno = listaAlunos[checaCodigoAluno(numeroAluno)]
+//            var curso = listaCurso[checaCodigoCurso(codCurso)]
 //
 //
 //            fun acharCurso(codCurso: Int) {
-//                if (codCurso in listaCurso) {
-//                    if (cursoMasComMinuscula != null) {
-//                        novoCursoCriado = cursoMasComMinuscula
-//                    }
+//                if (codCurso in listaCurso && cursoMasComMinuscula != null) {
+//                    curso = cursoMasComMinuscula
+//                    listaCurso.add(cursoMasComMinuscula)
 //                }
 //            }
 //
-//            fun acharAluno(alunoNovo: String) {
-//                if (numeroAluno in listaAlunos) {
-//                    if (alunoMatriculante != null)
-//                        novoAlunoMatriculado = alunoMatriculante
+//            fun acharAluno(numeroAluno: Int) {
+//                if (numeroAluno in listaAlunos && alunoMatriculante != null) {
+//                    aluno = alunoMatriculante
+//                    listaAlunos.add(alunoMatriculante!!)
 //                }
 //            }
 //
-//            if (codCurso in listaCurso && maximoAlunos) {
-//                println("não existem mais vagas neste curso")
-//            } else {
-//                novoCursoCriado.adicionarUmAluno(novoAlunoMatriculado)
-//                val matricula = Matricula(estudante = Estudante, curso = Curso, dataMatricula)
-//                matricula.add(listaMatriculas)
-//                println("matricula realizada com sucesso")
+//            if (aluno != null && curso != null) {
+//                curso.adicionarUmAluno(aluno)
 //            }
+//
+//            val matricula = Matricula(aluno, curso)
+//            listaMatriculas.add(matricula)
+//            println("aluno matriculado com sucesso")
 //        }
-//
-//
+//    }
+
+
+
 //    fun alocarProfessores(codCurso: Int, codProf: Int, codAdjunto: Int) {
 //
 //        fun acharProf(codProf: Int): Professor {
 //            var profCadastrar = Professor(codProf)
-//            profCadastrar = null
 //            listaProfessores.forEach { professor -> profCadastrar = professor
 //            }
 //            return profCadastrar
@@ -117,7 +147,7 @@ class DigitalHouseManager {
 //        }
 //    }
 //}
-//
-//
-//
-//
+
+
+
+

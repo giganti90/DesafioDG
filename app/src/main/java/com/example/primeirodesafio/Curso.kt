@@ -1,6 +1,6 @@
 package com.example.primeirodesafio
 
-data class Curso(val nomeDoCurso: String, val codCurso: Int, val maximoAlunos: Int) {
+class Curso(val nomeDoCurso: String, val codCurso: Int, val maximoAlunos: Int) {
 
     private var vagas = mutableListOf<Estudante>()
 

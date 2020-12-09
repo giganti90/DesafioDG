@@ -1,6 +1,6 @@
 package com.example.primeirodesafio
 
-data class Estudante(val nome: String, val sobrenome: String, var numeroAluno: Int) {
+class Estudante(val nome: String, val sobrenome: String, var numeroAluno: Int) {
 
     var matriculaAluno = Int
 
