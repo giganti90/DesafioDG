@@ -85,69 +85,85 @@ class DigitalHouseManager {
     }
 
 
-    fun temVagaNoCurso() {
+    fun temVagaNoCurso(maximoAlunos: Int): Int {
         if (vaga != null) {
             if (listaAlunos.size < vaga.maximoAlunos) {
-                return
+                return maximoAlunos
             }
         }
+        return -1
     }
-}
-        // ate aqui ok
-        // daqui pra baixo só desgraça
+
+    fun checaProf(codProf: Int): Int {
+        if (codProf in listaProfessores) {
+            return codProf
+        }
+        return -1
+    }
+
+    // ate aqui ok
+    // daqui pra baixo só desgraça
 
 
-//        fun matricularAluno(numeroAluno: Int, codCurso: Int) {
-//
-//            var aluno = listaAlunos[checaCodigoAluno(numeroAluno)]
-//            var curso = listaCurso[checaCodigoCurso(codCurso)]
-//
-//
-//            fun acharCurso(codCurso: Int) {
-//                if (codCurso in listaCurso && cursoMasComMinuscula != null) {
-//                    curso = cursoMasComMinuscula
-//                    listaCurso.add(cursoMasComMinuscula)
-//                }
-//            }
-//
-//            fun acharAluno(numeroAluno: Int) {
-//                if (numeroAluno in listaAlunos && alunoMatriculante != null) {
-//                    aluno = alunoMatriculante
-//                    listaAlunos.add(alunoMatriculante!!)
-//                }
-//            }
-//
-//            if (aluno != null && curso != null) {
-//                curso.adicionarUmAluno(aluno)
-//            }
-//
-//            val matricula = Matricula(aluno, curso)
-//            listaMatriculas.add(matricula)
-//            println("aluno matriculado com sucesso")
-//        }
-//    }
+    fun matricularAluno(numeroAluno: Int, codCurso: Int) {
 
+        var aluno = listaAlunos[checaCodigoAluno(numeroAluno)]
+        var curso = listaCurso[checaCodigoCurso(codCurso)]
+
+
+        fun acharCurso(codCurso: Int) {
+            if (codCurso in listaCurso && cursoMasComMinuscula != null) {
+                curso = cursoMasComMinuscula
+                listaCurso.add(cursoMasComMinuscula)
+            }
+        }
+
+        fun acharAluno(numeroAluno: Int) {
+            if (numeroAluno in listaAlunos && alunoMatriculante != null) {
+                aluno = alunoMatriculante
+                listaAlunos.add(alunoMatriculante!!)
+            }
+        }
+
+        if (aluno != null && curso != null) {
+            curso.adicionarUmAluno(aluno)
+        }
+
+        val matricula = Matricula(aluno, curso)
+        listaMatriculas.add(matricula)
+        println("aluno matriculado com sucesso")
+    }
 
 
 //    fun alocarProfessores(codCurso: Int, codProf: Int, codAdjunto: Int) {
+//        var vaganocurso: Curso = listaCurso[temVagaNoCurso(codCurso)]
+//        var titular: ProfessorTitular = listaProfessores[checaProf(codProf)] as ProfessorTitular
+//        var adjunto: ProfessorAdjunto = listaProfessores[checaProf(codProf)] as ProfessorAdjunto
 //
-//        fun acharProf(codProf: Int): Professor {
-//            var profCadastrar = Professor(codProf)
-//            listaProfessores.forEach { professor -> profCadastrar = professor
+//
+//        fun acharCurso(codCurso: Int) {
+//            if (codCurso in listaCurso) {
+//                vaganocurso = temVagaNoCurso(Curso)
+//                listaCurso.add(alunoMatriculante!!)
 //            }
-//            return profCadastrar
 //        }
 //
-//        fun acharAdjunto(codAdjunto: Int): ProfessorAdjunto {
-//            var adjuntoCadastrar = ProfessorAdjunto(codAdjunto)
-//            adjuntoCadastrar = null
-//            listaProfessores.forEach { adjunto -> adjunto = adjunto
+//
+//        fun acharTitular(codProf: Int) {
+//            if (codProf in listaProfessores) {
+//                titular = checaProf
+//                listaProfessores.add(titular)
 //            }
-//            return adjuntoCadastrar
+//        }
+//
+//        fun acharAdjunto(codProf: Int) {
+//            if (codProf in listaProfessores) {
+//                adjunto = checaProf
+//                listaProfessores.add(adjunto)
+//            }
 //        }
 //    }
-//}
-
+}
 
 
 

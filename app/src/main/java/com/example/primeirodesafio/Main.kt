@@ -19,6 +19,6 @@ fun main() {
 //    executaManager.alocarProfessores(2001, 10, 11)
 //    executaManager.alocarProfessores(2002, 12, 13)
 
-//    executaManager.matricularAluno(1, 2001)
+    executaManager.matricularAluno(1, 2001)
 
 }
