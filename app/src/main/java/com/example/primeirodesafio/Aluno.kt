@@ -21,6 +21,6 @@ class Estudante(val nome: String, val sobrenome: String, var numeroAluno: Int) {
         return result
     }
     override fun toString(): String {
-        return "'$nome $sobrenome', com código do aluno '$numeroAluno,'"
+        return "'$nome $sobrenome', com código do aluno '$numeroAluno',"
     }
 }
