@@ -23,3 +23,4 @@ open class Professor(val nomeProf: String, val sobrenomeProf: String, val tempoD
         return "'$nomeProf $sobrenomeProf', com tempo de casa de $tempoDeCasa anos e código do professor '$codProf',"
     }
 }
+

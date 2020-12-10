@@ -4,3 +4,4 @@ class ProfessorTitular(nomeProf: String, sobrenomeProf: String, tempoDeCasa: Int
     Professor(nomeProf, sobrenomeProf, tempoDeCasa, codProf) {
 
 }
+

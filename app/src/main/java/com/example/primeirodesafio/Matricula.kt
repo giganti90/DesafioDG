@@ -8,3 +8,4 @@ data class Matricula(val estudante: Estudante, val curso: Curso) {
     val dataMatricula: Date = data
 
 }
+
